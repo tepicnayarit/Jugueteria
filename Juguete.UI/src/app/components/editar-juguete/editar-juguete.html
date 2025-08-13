@@ -1,0 +1,45 @@
+<div *ngIf="juguete">
+  <h2>{{ juguete.nombre }}</h2>
+  <div>
+    Nombre:
+    <input [(ngModel)]="juguete.nombre" 
+    type="text"
+    id="nombre"
+    name="nombre"
+    required
+    minlength="3"
+    maxlength="50"
+    placeholder="Nombre del juguete" />
+  </div>
+  <div>
+    Descripción:
+    <input [(ngModel)]="juguete.descripcion" placeholder="Descripción" />
+  </div>
+  <div>
+    Restricción de Edad:
+    <input [(ngModel)]="juguete.restriccionEdad"  type="number"
+    id="restriccionEdad"
+    name="restriccionEdad"
+    min="0"
+    max="100"
+    placeholder="Restricción de edad" />
+  </div>
+  <div>
+    Compañía:
+    <input [(ngModel)]="juguete.compania" placeholder="Compañía" />
+  </div>
+  <div>
+    Precio:
+    <input [(ngModel)]="juguete.precio" 
+    type="number"
+    id="precio"
+    name="precio"
+    required
+    min="1"
+    max="1000"
+    placeholder="Precio" />
+  </div>
+  <button (click)="updateJuguete(juguete)" *ngIf="juguete.id">Actualizar</button>
+  <button (click)="deleteJuguete(juguete)" *ngIf="juguete.id">Eliminar</button>
+  <button (click)="createJuguete(juguete)" *ngIf="!juguete.id">Crear</button>
+</div>

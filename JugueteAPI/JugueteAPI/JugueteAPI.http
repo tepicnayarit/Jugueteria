@@ -1,0 +1,6 @@
+@JugueteAPI_HostAddress = http://localhost:5044
+
+GET {{JugueteAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

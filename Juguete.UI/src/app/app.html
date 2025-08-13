@@ -1,0 +1,28 @@
+<button (click)="initNewJuguete()" type="button" class="btn btn-primary">Crear Juguete Nuevo</button>
+
+<table class="table">
+  <thead class="dark">
+    <th>Nombre</th>
+    <th>Descripción</th>
+    <th>Restriccion de Edad</th>
+    <th>Compañía</th>
+    <th>Precio</th>
+    <th></th>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let juguete of juguetes">
+      <td>{{juguete.nombre}}</td>
+      <td>{{juguete.descripcion}}</td>
+      <td>{{juguete.restriccionEdad}}</td>
+      <td>{{juguete.compania}}</td>
+      <td>{{juguete.precio}}</td>
+      <td><button (click)="editJuguete(juguete)" type="button" class="btn btn-warning">Editar</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<app-editar-juguete
+  [juguete]="jugueteToEdit"
+  (juguetesUpdated)="updateJugueteList($event)"
+></app-editar-juguete>
