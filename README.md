@@ -14,8 +14,7 @@ Aplicación web para la administración de inventario de juguetes, desarrollada 
 
 ### 1️⃣ Clonar el repositorio
 ```bash
-git clone https://github.com/TU_USUARIO/TU_REPOSITORIO.git
-cd CRUD-Juguetes
+git clone https://github.com/tepicnayarit/Jugueteria.git
 
 ### Base de datos
 1. Abrir `Database/JugueteDB.sql` en SQL Server Management Studio.
