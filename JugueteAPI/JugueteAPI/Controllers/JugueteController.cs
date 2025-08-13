@@ -24,7 +24,7 @@ namespace JugueteAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<Juguete>>> CreateSuperHero(Juguete juguete)
+        public async Task<ActionResult<List<Juguete>>> CreateJuguete(Juguete juguete)
         {
             _context.Juguetes.Add(juguete);
             await _context.SaveChangesAsync();
@@ -33,17 +33,17 @@ namespace JugueteAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<List<Juguete>>> UpdateSuperHero(Juguete juguete)
+        public async Task<ActionResult<List<Juguete>>> UpdateJuguete(Juguete juguete)
         {
-            var dbHero = await _context.Juguetes.FindAsync(juguete.Id);
-            if (dbHero == null)
+            var dbJuguete = await _context.Juguetes.FindAsync(juguete.Id);
+            if (dbJuguete == null)
                 return BadRequest("Juguete no encontrado.");
 
-            dbHero.Nombre = juguete.Nombre;
-            dbHero.Descripcion = juguete.Descripcion;
-            dbHero.RestriccionEdad = juguete.RestriccionEdad;
-            dbHero.Compania = juguete.Compania;
-            dbHero.Precio = juguete.Precio;
+            dbJuguete.Nombre = juguete.Nombre;
+            dbJuguete.Descripcion = juguete.Descripcion;
+            dbJuguete.RestriccionEdad = juguete.RestriccionEdad;
+            dbJuguete.Compania = juguete.Compania;
+            dbJuguete.Precio = juguete.Precio;
               
             await _context.SaveChangesAsync();
 
@@ -51,13 +51,13 @@ namespace JugueteAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<Juguete>>> DeleteSuperHero(int id)
+        public async Task<ActionResult<List<Juguete>>> DeleteJuguete(int id)
         {
-            var dbHero = await _context.Juguetes.FindAsync(id);
-            if (dbHero == null)
+            var dbJuguete = await _context.Juguetes.FindAsync(id);
+            if (dbJuguete == null)
                 return BadRequest("Juguete no encontrado.");
 
-            _context.Juguetes.Remove(dbHero);
+            _context.Juguetes.Remove(dbJuguete);
             await _context.SaveChangesAsync();
 
             return Ok(await _context.Juguetes.ToListAsync());
