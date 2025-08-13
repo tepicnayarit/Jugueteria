@@ -5,6 +5,7 @@ Aplicación web para la administración de inventario de juguetes, desarrollada 
 ## 📌 Requerimientos
 - **.NET SDK 8.0** o superior
 - **Node.js 18+** y **npm**
+- - **Angular 16+**
 - **SQL Server Express**)
 - Visual Studio 2022 o Visual Studio Code
 
