@@ -1,27 +1,42 @@
-<button (click)="initNewJuguete()" type="button" class="btn btn-primary">Crear Juguete Nuevo</button>
+<!-- Botón Crear -->
+<div class="d-flex justify-content-end mb-3">
+  <button (click)="initNewJuguete()" type="button" class="btn btn-primary">
+    <i class="bi bi-plus-circle"></i> Crear Juguete Nuevo
+  </button>
+</div>
 
-<table class="table">
-  <thead class="dark">
-    <th>Nombre</th>
-    <th>Descripción</th>
-    <th>Restriccion de Edad</th>
-    <th>Compañía</th>
-    <th>Precio</th>
-    <th></th>
-  </thead>
+<!-- Tabla de Juguetes -->
+<div class="table-responsive">
+  <table class="table table-striped table-bordered align-middle shadow-sm">
+    <thead class="table-dark text-center">
+      <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Restricción de Edad</th>
+        <th>Compañía</th>
+        <th>Precio</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <tr *ngFor="let juguete of juguetes">
-      <td>{{juguete.nombre}}</td>
-      <td>{{juguete.descripcion}}</td>
-      <td>{{juguete.restriccionEdad}}</td>
-      <td>{{juguete.compania}}</td>
-      <td>{{juguete.precio}}</td>
-      <td><button (click)="editJuguete(juguete)" type="button" class="btn btn-warning">Editar</button></td>
-    </tr>
-  </tbody>
-</table>
+    <tbody>
+      <tr *ngFor="let juguete of juguetes">
+        <td>{{ juguete.nombre }}</td>
+        <td>{{ juguete.descripcion }}</td>
+        <td class="text-center">{{ juguete.restriccionEdad }}</td>
+        <td>{{ juguete.compania }}</td>
+        <td class="text-end">${{ juguete.precio }}</td>
+        <td class="text-center">
+          <button (click)="editJuguete(juguete)" type="button" class="btn btn-warning btn-sm">
+            <i class="bi bi-pencil"></i> Editar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
+<!-- Componente de edición -->
 <app-editar-juguete
   [juguete]="jugueteToEdit"
   (juguetesUpdated)="updateJugueteList($event)"
